@@ -1,0 +1,8 @@
+main.board {
+    position: relative;
+}
+
+.row {
+    position: absolute;
+    width: max-content;
+}
