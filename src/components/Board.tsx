@@ -1,32 +1,19 @@
 import React from "react";
 import "../styles/Board.css";
-import { Cell } from "./Cell.tsx";
+import {CellComp} from "./CellComp.tsx";
+import {Cell} from "../types";
 
 interface BoardProps {
-    rows: number;
-    cols: number;
-    cellHeight?: number;
+    cells: Cell[][];
     containerHeight?: number;
+    cellHeight?: number;
 }
 
 export const Board: React.FC<BoardProps> = ({
-                                                rows,
-                                                cols,
+                                                cells,
                                                 containerHeight = window.innerHeight,
-                                                cellHeight = containerHeight / rows * 1.25
+                                                cellHeight = containerHeight / cells.length * 1.25
                                             }) => {
-    const cells = [];
-    for (let i = 0; i < rows; i++) {
-        cells.push(
-            Array(cols).fill(null).map((_, j) =>
-                <Cell
-                    style={{filter: "drop-shadow(rgba(255, 255, 255, 0.5) 0px 0px 10px)"}}
-                    key={"" + i + j}
-                    height={cellHeight}/>
-            )
-        );
-
-    }
     return (
         <main className="board">
             {cells.map((row, i) =>
@@ -38,9 +25,14 @@ export const Board: React.FC<BoardProps> = ({
                     }}
                     className="row"
                     key={i}>
-                    {row}
-                </div>)
-            }
+                    {row.map((cell, j) =>
+                        <CellComp
+                            cell={cell}
+                            key={i + j}
+                            height={cellHeight}/>
+                    )}
+                </div>
+            )}
         </main>
     );
 };

@@ -1,0 +1,706 @@
+{
+  "gameElements": {
+    "sprint1": [
+      {
+        "type": "instant",
+        "entity": "boat",
+        "sprint": 1
+      },
+      {
+        "type": "instant",
+        "entity": "shark",
+        "sprint": 1
+      },
+      {
+        "type": "instant",
+        "entity": "shark",
+        "sprint": 1
+      },
+      {
+        "type": "instant",
+        "entity": "shark",
+        "sprint": 1
+      },
+      {
+        "type": "instant",
+        "entity": "whale",
+        "sprint": 1
+      },
+      {
+        "type": "instant",
+        "entity": "whale",
+        "sprint": 1
+      },
+      {
+        "type": "instant",
+        "entity": "whale",
+        "sprint": 1
+      },
+      {
+        "type": "idea",
+        "entity": "monster",
+        "sprint": 1
+      },
+      {
+        "type": "idea",
+        "entity": "shark",
+        "sprint": 1
+      },
+      {
+        "type": "idea",
+        "entity": "whale",
+        "sprint": 1
+      },
+      {
+        "type": "idea",
+        "entity": "boat",
+        "sprint": 1
+      },
+      {
+        "type": "idea",
+        "entity": "boat",
+        "sprint": 1
+      },
+      {
+        "type": "idea",
+        "entity": "dolfin",
+        "sprint": 1
+      },
+      {
+        "type": "idea",
+        "entity": "dolfin",
+        "sprint": 1
+      },
+      {
+        "type": "idea",
+        "entity": "dolfin",
+        "sprint": 1
+      },
+      {
+        "type": "counter",
+        "entity": "shark",
+        "sprint": 1
+      }
+    ],
+    "sprint2": [
+      {
+        "type": "instant",
+        "entity": "boat",
+        "sprint": 2
+      },
+      {
+        "type": "instant",
+        "entity": "boat",
+        "sprint": 2
+      },
+      {
+        "type": "instant",
+        "entity": "boat",
+        "sprint": 2
+      },
+      {
+        "type": "instant",
+        "entity": "shark",
+        "sprint": 2
+      },
+      {
+        "type": "instant",
+        "entity": "shark",
+        "sprint": 2
+      },
+      {
+        "type": "instant",
+        "entity": "whale",
+        "sprint": 2
+      },
+      {
+        "type": "instant",
+        "entity": "whale",
+        "sprint": 2
+      },
+      {
+        "type": "instant",
+        "entity": "whirlpool",
+        "sprint": 2
+      },
+      {
+        "type": "instant",
+        "entity": "whirlpool",
+        "sprint": 2
+      },
+      {
+        "type": "idea",
+        "entity": "monster",
+        "sprint": 2
+      },
+      {
+        "type": "idea",
+        "entity": "shark",
+        "sprint": 2
+      },
+      {
+        "type": "idea",
+        "entity": "whale",
+        "sprint": 2
+      },
+      {
+        "type": "idea",
+        "entity": "dolfin",
+        "sprint": 2
+      },
+      {
+        "type": "counter",
+        "entity": "shark",
+        "sprint": 2
+      },
+      {
+        "type": "counter",
+        "entity": "whale",
+        "sprint": 2
+      },
+      {
+        "type": "counter",
+        "entity": "whale",
+        "sprint": 2
+      }
+    ],
+    "sprint3": [
+      {
+        "type": "instant",
+        "entity": "doom",
+        "sprint": 3
+      },
+      {
+        "type": "instant",
+        "entity": "whirlpool",
+        "sprint": 3
+      },
+      {
+        "type": "instant",
+        "entity": "whirlpool",
+        "sprint": 3
+      },
+      {
+        "type": "instant",
+        "entity": "whirlpool",
+        "sprint": 3
+      },
+      {
+        "type": "instant",
+        "entity": "whirlpool",
+        "sprint": 3
+      },
+      {
+        "type": "instant",
+        "entity": "shark",
+        "sprint": 3
+      },
+      {
+        "type": "counter",
+        "entity": "shark",
+        "sprint": 3
+      },
+      {
+        "type": "counter",
+        "entity": "whale",
+        "sprint": 3
+      }
+    ]
+  },
+  "board": [
+    [
+      {
+        "type": "none"
+      },
+      {
+        "type": "none"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "none"
+      },
+      {
+        "type": "none"
+      },
+      {
+        "type": "none"
+      }
+    ],
+    [
+      {
+        "type": "safe"
+      },
+      {
+        "type": "deamon"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "safe"
+      }
+    ],
+    [
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "deamon"
+      },
+      {
+        "type": "none"
+      }
+    ],
+    [
+      {
+        "type": "none"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "sprint"
+      },
+      {
+        "type": "sprint"
+      },
+      {
+        "type": "sprint"
+      },
+      {
+        "type": "sprint"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "none"
+      }
+    ],
+    [
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "sprint"
+      },
+      {
+        "type": "sprint"
+      },
+      {
+        "type": "sprint"
+      },
+      {
+        "type": "sprint"
+      },
+      {
+        "type": "sprint"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "none"
+      }
+    ],
+    [
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "sprint"
+      },
+      {
+        "type": "sprint"
+      },
+      {
+        "type": "sprint"
+      },
+      {
+        "type": "sprint"
+      },
+      {
+        "type": "sprint"
+      },
+      {
+        "type": "sprint"
+      },
+      {
+        "type": "sprint"
+      },
+      {
+        "type": "sprint"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      }
+    ],
+    [
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "sprint"
+      },
+      {
+        "type": "sprint"
+      },
+      {
+        "type": "sprint"
+      },
+      {
+        "type": "deamon"
+      },
+      {
+        "type": "sprint"
+      },
+      {
+        "type": "sprint"
+      },
+      {
+        "type": "sprint"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "none"
+      }
+    ],
+    [
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "sprint"
+      },
+      {
+        "type": "sprint"
+      },
+      {
+        "type": "sprint"
+      },
+      {
+        "type": "sprint"
+      },
+      {
+        "type": "sprint"
+      },
+      {
+        "type": "sprint"
+      },
+      {
+        "type": "sprint"
+      },
+      {
+        "type": "sprint"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      }
+    ],
+    [
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "sprint"
+      },
+      {
+        "type": "sprint"
+      },
+      {
+        "type": "sprint"
+      },
+      {
+        "type": "sprint"
+      },
+      {
+        "type": "sprint"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "none"
+      }
+    ],
+    [
+      {
+        "type": "none"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "sprint"
+      },
+      {
+        "type": "sprint"
+      },
+      {
+        "type": "sprint"
+      },
+      {
+        "type": "sprint"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "none"
+      }
+    ],
+    [
+      {
+        "type": "deamon"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "none"
+      }
+    ],
+    [
+      {
+        "type": "safe"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "deamon"
+      },
+      {
+        "type": "safe"
+      }
+    ],
+    [
+      {
+        "type": "none"
+      },
+      {
+        "type": "none"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "production"
+      },
+      {
+        "type": "none"
+      },
+      {
+        "type": "none"
+      },
+      {
+        "type": "none"
+      }
+    ]
+  ]
+}

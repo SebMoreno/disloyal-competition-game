@@ -1,8 +1,9 @@
 .cell {
+    position: relative;
     margin-left: 1px;
 }
 
 .cell.highlight {
     z-index: 1;
-    filter: drop-shadow(0px 0px 10px rgba(255, 255, 255, 0.5));
+    filter: drop-shadow(0 0 10px white) drop-shadow(0 0 15px white);
 }
