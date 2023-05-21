@@ -1,17 +1,15 @@
+import { Cell } from "../types";
 import game from "./gameElements.json";
-import {shuffleArray} from "./shuffleArray.ts";
-import {Cell} from "../types";
+import { shuffleArray } from "./shuffleArray.ts";
 
 export function createInitialBoard(): Cell[][] {
-
     const board = game.board as Cell[][];
-    const {sprint1, sprint2, sprint3} = game.gameElements as GameElements;
-    const lozas = shuffleArray(...sprint1, ...sprint2, ...sprint3);
-    let i = lozas.length;
+    const sprintCells = shuffleArray(...game.sprintCells) as Cell[];
+    let j = sprintCells.length;
     for (const row of board) {
-        for (const cell of row) {
-            if (cell.type === "sprint") {
-                cell.type = "sprint" + lozas[--i].sprint;
+        for (let i = 0; i < row.length; i++) {
+            if (row[i].type === "placeholder") {
+                row[i] = sprintCells[--j];
             }
         }
     }

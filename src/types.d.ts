@@ -1,22 +1,12 @@
+export type Entity = "feature" | "boat" | "shark" | "whale" | "monster";
+
 export interface Cell {
-    type: "sprint" | "production" | "safe" | "none";
+    type: "placeholder" | "production" | "safe" | "none" | "sprint1" | "sprint2" | "sprint3";
     content: Entity[];
-    event: GameEvent;
-}
-
-
-export interface Entity {
-    type: "player" | "enemy" | "none";
+    event?: GameEvent;
 }
 
 export interface GameEvent {
     type: "instant" | "idea" | "counter";
-    entity: "boat" | "shark" | "whale" | "monster" | "dolfin" | "whirlpool" | "doom";
-    sprint: 1 | 2 | 3;
-}
-
-export interface GameElements {
-    sprint1: GameEvent[];
-    sprint2: GameEvent[];
-    sprint3: GameEvent[];
+    entity: Entity | "whirlpool" | "doom" | "dolphin";
 }

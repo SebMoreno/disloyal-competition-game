@@ -1,6 +1,6 @@
 import React from "react";
 import "../styles/Cell.css";
-import {Cell} from "../types";
+import { Cell } from "../types";
 
 interface CellProps {
     cell: Cell;
@@ -13,10 +13,11 @@ const colors: Record<Cell["type"], string> = {
     sprint3: "#808080",
     production: "#28498d",
     safe: "#9acd32",
-    none: "transparent"
-}
+    none: "transparent",
+    placeholder: "transparent"
+};
 const aspectRatio = 174 / 200;
-export const CellComp: React.FC<CellProps> = ({height, cell}) => {
+export const CellComp: React.FC<CellProps> = ({ height, cell }) => {
     const width = height * aspectRatio;
     return (
         <svg
