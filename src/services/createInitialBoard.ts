@@ -4,7 +4,7 @@ import { shuffleArray } from "./shuffleArray.ts";
 
 export function createInitialBoard(): Cell[][] {
     const board = game.board as Cell[][];
-    const sprintCells = shuffleArray(...game.sprintCells) as Cell[];
+    const sprintCells = shuffleArray(game.sprintCells) as Cell[];
     let j = sprintCells.length;
     for (const row of board) {
         for (let i = 0; i < row.length; i++) {
