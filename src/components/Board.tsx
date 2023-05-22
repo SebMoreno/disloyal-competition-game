@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/Board.css";
-import {CellComp} from "./CellComp.tsx";
-import {Cell} from "../types";
+import { Cell } from "../types.ts";
+import { CellComp } from "./CellComp.tsx";
 
 interface BoardProps {
     cells: Cell[][];
