@@ -1,6 +1,7 @@
 import React from "react";
 import "../styles/Cell.css";
 import { Cell } from "../types";
+import { HexagonSVG } from "./HexagonSVG.tsx";
 
 interface CellProps {
     cell: Cell;
@@ -20,13 +21,8 @@ const aspectRatio = 174 / 200;
 export const CellComp: React.FC<CellProps> = ({ height, cell }) => {
     const width = height * aspectRatio;
     return (
-        <svg
-            viewBox="0 0 174 200"
-            height={height}
-            width={width}
-            className="cell">
-            <path fill={colors[cell.type]}
-                  d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z"/>
-        </svg>
+        <div className="cell">
+            <HexagonSVG height={height} width={width} fill={colors[cell.type]}/>
+        </div>
     );
 };
