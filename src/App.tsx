@@ -28,6 +28,9 @@ export const App: React.FC = () => {
         switch (fase) {
             case GameFases.setup:
                 players.current = parseInt(prompt("How many players?") ?? "0");
+                if (isNaN(players.current)) {
+                    players.current = 4;
+                }
                 features.current = Math.floor(40 / players.current) * players.current;
                 setFase(GameFases.placement);
                 break;
