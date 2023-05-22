@@ -1,9 +1,85 @@
 .cell {
     position: relative;
     margin-left: 1px;
+    display: inline-block;
+    height: inherit;
 }
 
 .cell.highlight {
     z-index: 1;
     filter: drop-shadow(0 0 10px white) drop-shadow(0 0 15px white);
+}
+
+.cell_content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.demon {
+    height: 10px;
+    width: 10px;
+    background-color: indigo;
+    border-radius: 80% 0;
+    transform: rotate(45deg);
+    border: solid;
+}
+
+.demon::after {
+    position: absolute;
+    top: 36%;
+    left: 36%;
+    content: "";
+    height: 3px;
+    width: 3px;
+    background-color: white;
+    border-radius: 100% 0;
+    transform: rotate(90deg);
+}
+
+.feature1,
+.feature2,
+.feature3,
+.feature4,
+.feature5,
+.feature6 {
+    height: 4px;
+    border-left: solid 4px;
+    border-right: solid 4px;
+    border-bottom: solid transparent 5px;
+    border-top: solid transparent 5px;
+    margin: 0 8px;
+}
+
+.feature1 {
+    border-left-color: darkred;
+    border-right-color: darkred;
+}
+
+.feature2 {
+    border-left-color: darkblue;
+    border-right-color: darkblue;
+}
+
+.feature3 {
+    border-left-color: darkorange;
+    border-right-color: darkorange;
+}
+
+.feature4 {
+    border-left-color: darkgreen;
+    border-right-color: darkgreen;
+}
+
+.feature5 {
+    border-left-color: darkmagenta;
+    border-right-color: darkmagenta;
+}
+
+.feature6 {
+    border-left-color: crimson;
+    border-right-color: crimson;
 }

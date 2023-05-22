@@ -1,4 +1,4 @@
-import { Cell } from "../types";
+import { Cell } from "src/types.ts";
 import game from "./gameElements.json";
 import { shuffleArray } from "./shuffleArray.ts";
 

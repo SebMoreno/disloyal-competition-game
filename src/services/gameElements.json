@@ -60,7 +60,7 @@
       "type": "sprint1",
       "event": {
         "type": "idea",
-        "entity": "monster"
+        "entity": "demon"
       },
       "content": []
     },
@@ -204,7 +204,7 @@
       "type": "sprint2",
       "event": {
         "type": "idea",
-        "entity": "monster"
+        "entity": "demon"
       },
       "content": []
     },
@@ -379,7 +379,9 @@
       },
       {
         "type": "production",
-        "content": ["demon"]
+        "content": [
+          "demon"
+        ]
       },
       {
         "type": "production",
@@ -465,7 +467,9 @@
       },
       {
         "type": "production",
-        "content": ["demon"]
+        "content": [
+          "demon"
+        ]
       },
       {
         "type": "none",
@@ -645,7 +649,14 @@
       },
       {
         "type": "production",
-        "content": ["demon"]
+        "content": [
+          "demon",
+          "demon",
+          "feature1",
+          "feature2",
+          "feature3",
+          "feature4"
+        ]
       },
       {
         "type": "placeholder",
@@ -825,7 +836,9 @@
     [
       {
         "type": "production",
-        "content": ["demon"]
+        "content": [
+          "demon"
+        ]
       },
       {
         "type": "production",
@@ -915,7 +928,9 @@
       },
       {
         "type": "production",
-        "content": ["demon"]
+        "content": [
+          "demon"
+        ]
       },
       {
         "type": "safe",
