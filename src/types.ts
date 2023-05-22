@@ -1,14 +1,21 @@
 export enum Entity {
+    "feature0" = "feature0",
     "feature1" = "feature1",
     "feature2" = "feature2",
     "feature3" = "feature3",
     "feature4" = "feature4",
     "feature5" = "feature5",
-    "feature6" = "feature6",
     "boat" = "boat",
     "shark" = "shark",
     "whale" = "whale",
     "demon" = "demon"
+}
+
+export enum GameFases {
+    "setup",
+    "placement",
+    "movement",
+    "sprintEnd"
 }
 
 export interface Cell {

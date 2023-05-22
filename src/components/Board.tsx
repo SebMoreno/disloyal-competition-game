@@ -7,12 +7,14 @@ interface BoardProps {
     cells: Cell[][];
     containerHeight?: number;
     cellHeight?: number;
+    onCellSelected: (i: number, j: number) => void;
 }
 
 export const Board: React.FC<BoardProps> = ({
                                                 cells,
                                                 containerHeight = window.innerHeight,
-                                                cellHeight = containerHeight / cells.length * 1.25
+                                                cellHeight = containerHeight / cells.length * 1.25,
+                                                onCellSelected
                                             }) => {
     return (
         <main className="board">
@@ -27,6 +29,8 @@ export const Board: React.FC<BoardProps> = ({
                     key={i}>
                     {row.map((cell, j) =>
                         <CellComp
+                            onSelected={onCellSelected}
+                            position={{ i, j }}
                             cell={cell}
                             key={i + j}
                             height={cellHeight}/>

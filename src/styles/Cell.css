@@ -40,12 +40,12 @@
     transform: rotate(90deg);
 }
 
+.feature0,
 .feature1,
 .feature2,
 .feature3,
 .feature4,
-.feature5,
-.feature6 {
+.feature5 {
     height: 4px;
     border-left: solid 4px;
     border-right: solid 4px;
@@ -54,32 +54,32 @@
     margin: 0 8px;
 }
 
-.feature1 {
+.feature0 {
     border-left-color: darkred;
     border-right-color: darkred;
 }
 
-.feature2 {
+.feature1 {
     border-left-color: darkblue;
     border-right-color: darkblue;
 }
 
-.feature3 {
+.feature2 {
     border-left-color: darkorange;
     border-right-color: darkorange;
 }
 
-.feature4 {
+.feature3 {
     border-left-color: darkgreen;
     border-right-color: darkgreen;
 }
 
-.feature5 {
+.feature4 {
     border-left-color: darkmagenta;
     border-right-color: darkmagenta;
 }
 
-.feature6 {
+.feature5 {
     border-left-color: crimson;
     border-right-color: crimson;
 }

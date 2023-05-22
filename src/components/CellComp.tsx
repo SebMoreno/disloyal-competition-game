@@ -1,4 +1,4 @@
-import React, { MouseEventHandler } from "react";
+import React, { MouseEventHandler, useCallback } from "react";
 import "../styles/Cell.css";
 import { Cell } from "../types";
 import { HexagonSVG } from "./HexagonSVG.tsx";
@@ -6,6 +6,8 @@ import { HexagonSVG } from "./HexagonSVG.tsx";
 interface CellProps {
     cell: Cell;
     height: number;
+    position: { i: number, j: number };
+    onSelected: (i: number, j: number) => void;
 }
 
 const colors: Record<Cell["type"], string> = {
@@ -27,16 +29,17 @@ const highlightElement: MouseEventHandler<HTMLDivElement> = e => {
 const unHighlightElement: MouseEventHandler<HTMLDivElement> = e => {
     e.currentTarget.classList.remove("highlight");
 };
-export const CellComp: React.FC<CellProps> = ({ height, cell }) => {
+export const CellComp: React.FC<CellProps> = ({ height, cell, onSelected, position }) => {
     const width = height * aspectRatio;
+    const handleClick: React.MouseEventHandler<HTMLDivElement> = useCallback(() => {
+        onSelected(position.i, position.j);
+    }, [onSelected, position]);
+
     if (cell.type === "none") {
         return <div className="cell">
             <HexagonSVG height={height} width={width} fill={colors[cell.type]}/>
         </div>;
     }
-    const handleClick: React.MouseEventHandler<HTMLDivElement> = e => {
-        console.log(e);
-    };
     return (
         <div className="cell"
              onClick={handleClick}
