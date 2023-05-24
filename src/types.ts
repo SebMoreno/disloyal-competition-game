@@ -12,8 +12,8 @@ export enum Entity {
 }
 
 export enum GameFases {
-    "setup",
-    "placement",
+    "featurePlacement",
+    "boatPlacement",
     "movement",
     "sprintEnd"
 }
