@@ -1,13 +1,13 @@
 import React from "react";
 import "../styles/Board.css";
-import { Cell } from "../types.ts";
+import { Cell, Position } from "../types.ts";
 import { CellComp } from "./CellComp.tsx";
 
 interface BoardProps {
     cells: Cell[][];
     containerHeight?: number;
     cellHeight?: number;
-    onCellSelected: (i: number, j: number) => void;
+    onCellSelected: (position: Position) => void;
 }
 
 export const Board: React.FC<BoardProps> = ({
@@ -30,7 +30,7 @@ export const Board: React.FC<BoardProps> = ({
                     {row.map((cell, j) =>
                         <CellComp
                             onSelected={onCellSelected}
-                            position={{ i, j }}
+                            position={{i, j}}
                             cell={cell}
                             key={i + j}
                             height={cellHeight}/>

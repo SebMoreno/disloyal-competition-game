@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { createInitialBoard } from "../services/createInitialBoard.ts";
-import { Cell, Entity, GameFases } from "../types.ts";
+import { Cell, Entity, GameFases, Position } from "../types.ts";
 import { Board } from "./Board.tsx";
 import { usePlayer } from "../hooks/usePlayer.ts";
 
@@ -17,7 +17,7 @@ export const Game: React.FC<GameProps> = ({maxBoats, maxFeatures, players}) => {
     const [cells, setCells] = useState(createInitialBoard);
     const [fase, setFase] = useState(GameFases.featurePlacement);
 
-    function handleCellSelected(i: number, j: number) {
+    function handleCellSelected({i, j}: Position) {
         const newCells: Cell[][] = structuredClone(cells);
         const cell = newCells[i][j];
         switch (fase) {

@@ -1,13 +1,13 @@
 import React, { useCallback, useState } from "react";
 import "../styles/Cell.css";
-import { Cell } from "../types";
+import { Cell, Position } from "../types";
 import { HexagonSVG } from "./HexagonSVG.tsx";
 
 interface CellProps {
     cell: Cell;
     height: number;
-    position: { i: number, j: number };
-    onSelected: (i: number, j: number) => void;
+    position: Position;
+    onSelected: (position: Position) => void;
     isHighlighted?: boolean;
 }
 
@@ -26,9 +26,7 @@ const aspectRatio = 174 / 200;
 export const CellComp: React.FC<CellProps> = ({height, cell, onSelected, position}) => {
     const [highlight, setHighlight] = useState(cell.isHighlighted);
     const width = height * aspectRatio;
-    const handleClick: React.MouseEventHandler<HTMLDivElement> = useCallback(() => {
-        onSelected(position.i, position.j);
-    }, [onSelected, position]);
+    const handleClick: React.MouseEventHandler<HTMLDivElement> = useCallback(() => onSelected(position), [onSelected, position]);
 
     if (cell.type === "none") {
         return <div className="cell">

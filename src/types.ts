@@ -25,6 +25,11 @@ export interface Cell {
     isHighlighted?: boolean;
 }
 
+export interface Position {
+    i: number;
+    j: number;
+}
+
 export interface GameEvent {
     type: "instant" | "idea" | "counter";
     entity: Entity | "whirlpool" | "doom" | "dolphin";
