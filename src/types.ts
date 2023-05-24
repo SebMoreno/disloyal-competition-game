@@ -22,6 +22,7 @@ export interface Cell {
     type: "placeholder" | "production" | "safe" | "none" | "sprint1" | "sprint2" | "sprint3";
     content: Entity[];
     event?: GameEvent;
+    isHighlighted?: boolean;
 }
 
 export interface GameEvent {
