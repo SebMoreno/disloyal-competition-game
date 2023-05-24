@@ -29,7 +29,7 @@ const highlightElement: MouseEventHandler<HTMLDivElement> = e => {
 const unHighlightElement: MouseEventHandler<HTMLDivElement> = e => {
     e.currentTarget.classList.remove("highlight");
 };
-export const CellComp: React.FC<CellProps> = ({ height, cell, onSelected, position }) => {
+export const CellComp: React.FC<CellProps> = ({height, cell, onSelected, position}) => {
     const width = height * aspectRatio;
     const handleClick: React.MouseEventHandler<HTMLDivElement> = useCallback(() => {
         onSelected(position.i, position.j);

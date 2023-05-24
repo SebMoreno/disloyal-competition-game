@@ -1,10 +1,10 @@
-import React, {useEffect, useRef, useState} from "react";
-import {createInitialBoard} from "../services/createInitialBoard.ts";
-import {Cell, Entity, GameFases} from "../types.ts";
-import {Board} from "./Board.tsx";
+import React, { useEffect, useRef, useState } from "react";
+import { createInitialBoard } from "../services/createInitialBoard.ts";
+import { Cell, Entity, GameFases } from "../types.ts";
+import { Board } from "./Board.tsx";
 
 export const Game: React.FC = () => {
-    const players = useRef<number>(0);
+    const players = useRef<number>(4);
     const features = useRef<number>(0);
     const [cells, setCells] = useState(createInitialBoard);
     const [fase, setFase] = useState(GameFases.setup);
@@ -26,9 +26,8 @@ export const Game: React.FC = () => {
     function handleFaseChange() {
         switch (fase) {
             case GameFases.setup:
-                players.current = parseInt(prompt("How many players?") ?? "0");
-                if (isNaN(players.current)) {
-                    players.current = 4;
+                if (!players.current) {
+                    players.current = parseInt(prompt("How many players?") ?? "0");
                 }
                 features.current = Math.floor(40 / players.current) * players.current;
                 setFase(GameFases.placement);
