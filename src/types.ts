@@ -14,7 +14,8 @@ export enum Entity {
 export enum GameFases {
     "featurePlacement",
     "boatPlacement",
-    "movement",
+    "selectMoveFromCell",
+    "moveToCell",
     "sprintEnd"
 }
 

@@ -8,18 +8,21 @@ interface GameProps {
     players: number;
     maxBoats: number;
     maxFeatures: number;
+    askForEntity: (entities: Entity[]) => Entity;
 }
 
-export const Game: React.FC<GameProps> = ({maxBoats, maxFeatures, players}) => {
+export const Game: React.FC<GameProps> = ({maxBoats, maxFeatures, players, askForEntity}) => {
     const features = useRef(Math.floor(maxFeatures / players) * players);
     const boats = useRef(maxBoats);
     const {currentPlayer, nextTurn} = usePlayer(players);
     const [cells, setCells] = useState(createInitialBoard);
     const [fase, setFase] = useState(GameFases.featurePlacement);
+    const [fromCell, setFromCell] = useState<Position | null>(null);
+    const [entityToMove, setEntityToMove] = useState<Entity | null>(null);
 
-    function handleCellSelected({i, j}: Position) {
+    function handleCellSelected(position: Position) {
         const newCells: Cell[][] = structuredClone(cells);
-        const cell = newCells[i][j];
+        const cell = newCells[position.i][position.j];
         switch (fase) {
             case GameFases.featurePlacement:
                 if (features.current > 0
@@ -42,8 +45,24 @@ export const Game: React.FC<GameProps> = ({maxBoats, maxFeatures, players}) => {
                     nextTurn();
                 }
                 if (boats.current === 0) {
-                    setFase(GameFases.movement);
+                    setFase(GameFases.selectMoveFromCell);
                 }
+                break;
+            case GameFases.selectMoveFromCell:
+                if (cell.content.length > 0) {
+                    cell.isHighlighted = true;
+                    setFromCell(position);
+                    setEntityToMove(askForEntity(cell.content));
+                    setFase(GameFases.moveToCell);
+                }
+                break;
+            case GameFases.moveToCell:
+                const currentFromCell = newCells[fromCell!.i][fromCell!.j];
+                const entityIndex = currentFromCell.content.findLastIndex(entity => entity === entityToMove);
+                currentFromCell.content.splice(entityIndex, 1);
+                cell.content.push(entityToMove!);
+                setFase(GameFases.selectMoveFromCell);
+                delete currentFromCell.isHighlighted;
                 break;
         }
         setCells(newCells);
@@ -65,6 +84,5 @@ export const Game: React.FC<GameProps> = ({maxBoats, maxFeatures, players}) => {
 
     return <div>
         <Board cells={cells} onCellSelected={handleCellSelected}/>
-        <h1>{currentPlayer}</h1>
     </div>;
 };
