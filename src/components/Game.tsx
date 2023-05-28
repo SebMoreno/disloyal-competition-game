@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { createInitialBoard } from "../services/createInitialBoard.ts";
-import { Cell, Entity, GameFases, Position } from "../types.ts";
+import { Cell, Entity, EntityName, GameFases, Position } from "../types.ts";
 import { Board } from "./Board.tsx";
 import { usePlayer } from "../hooks/usePlayer.ts";
 
@@ -28,7 +28,7 @@ export const Game: React.FC<GameProps> = ({maxBoats, maxFeatures, players, askFo
                 if (features.current > 0
                     && cell.type.includes("sprint")
                     && cell.content.length === 0) {
-                    cell.content.push("feature" + currentPlayer as Entity);
+                    cell.content.push({name: "feature" + currentPlayer as EntityName, movements: 3});
                     features.current--;
                     nextTurn();
                 }
@@ -40,7 +40,7 @@ export const Game: React.FC<GameProps> = ({maxBoats, maxFeatures, players, askFo
                 if (boats.current > 0
                     && cell.type === "production"
                     && cell.content.length === 0) {
-                    cell.content.push(Entity.boat);
+                    cell.content.push({name: EntityName.boat, movements: 3, passangers: []});
                     boats.current--;
                     nextTurn();
                 }
@@ -49,7 +49,8 @@ export const Game: React.FC<GameProps> = ({maxBoats, maxFeatures, players, askFo
                 }
                 break;
             case GameFases.selectMoveFromCell:
-                if (cell.content.length > 0) {
+                if (cell.content.length > 0
+                    && cell.content.some(entity => entity.name.includes("feature") && entity.movements > 0)) {
                     cell.isHighlighted = true;
                     setFromCell(position);
                     setEntityToMove(askForEntity(cell.content));
@@ -57,12 +58,21 @@ export const Game: React.FC<GameProps> = ({maxBoats, maxFeatures, players, askFo
                 }
                 break;
             case GameFases.moveToCell:
-                const currentFromCell = newCells[fromCell!.i][fromCell!.j];
-                const entityIndex = currentFromCell.content.findLastIndex(entity => entity === entityToMove);
-                currentFromCell.content.splice(entityIndex, 1);
-                cell.content.push(entityToMove!);
-                setFase(GameFases.selectMoveFromCell);
-                delete currentFromCell.isHighlighted;
+                if (fromCell && entityToMove) {
+                    const currentFromCell = newCells[fromCell.i][fromCell.j];
+                    const entityIndex = currentFromCell.content
+                        .findLastIndex(({
+                                            name,
+                                            movements
+                                        }) => name === entityToMove.name && movements === entityToMove.movements);
+                    currentFromCell.content.splice(entityIndex, 1);
+                    delete currentFromCell.isHighlighted;
+                    entityToMove.movements--;
+                    cell.content.push(entityToMove);
+                    setFase(GameFases.selectMoveFromCell);
+                    setEntityToMove(null);
+                    setFromCell(null);
+                }
                 break;
         }
         setCells(newCells);

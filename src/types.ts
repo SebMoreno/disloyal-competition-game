@@ -1,4 +1,4 @@
-export enum Entity {
+export enum EntityName {
     "feature0" = "feature0",
     "feature1" = "feature1",
     "feature2" = "feature2",
@@ -9,6 +9,12 @@ export enum Entity {
     "shark" = "shark",
     "whale" = "whale",
     "demon" = "demon"
+}
+
+export interface Entity {
+    name: EntityName;
+    movements: number;
+    passangers?: Entity[];
 }
 
 export enum GameFases {
@@ -33,5 +39,5 @@ export interface Position {
 
 export interface GameEvent {
     type: "instant" | "idea" | "counter";
-    entity: Entity | "whirlpool" | "doom" | "dolphin";
+    entity: EntityName | "whirlpool" | "doom" | "dolphin";
 }

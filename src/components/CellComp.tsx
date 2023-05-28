@@ -50,7 +50,7 @@ export const CellComp: React.FC<CellProps> = ({height, cell, onSelected, positio
              onMouseLeave={highlightOnHover ? (() => setHighlight(false)) : undefined}>
             <HexagonSVG height={height} width={width} fill={colors[cell.type]}/>
             <div className="cell_content">
-                {cell.content.map((e, i) => <div key={i} className={e}/>)}
+                {cell.content.map((e, i) => <div key={i} className={e.name}/>)}
             </div>
         </div>
     );

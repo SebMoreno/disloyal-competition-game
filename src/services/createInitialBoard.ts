@@ -1,9 +1,25 @@
-import { Cell } from "../types.ts";
+import { Cell, EntityName } from "../types.ts";
 import game from "./gameElements.json";
 import { shuffleArray } from "./shuffleArray.ts";
 
+
 export function createInitialBoard(): Cell[][] {
-    const board = game.board as Cell[][];
+    const initialBoard = game.board as (Omit<Cell, "content"> & { content: EntityName[] })[][];
+    const board = initialBoard
+        .map(row => row
+            .map(cell => ({
+                    ...cell,
+                    content: cell.content
+                        .map(entity => ({
+                                name: entity,
+                                movements: entity.includes("feature") ? 3
+                                    : entity === EntityName.demon ? 1
+                                        : 0
+                            })
+                        )
+                } as Cell)
+            )
+        );
     const sprintCells = shuffleArray(game.sprintCells) as Cell[];
     let j = sprintCells.length;
     for (const row of board) {
