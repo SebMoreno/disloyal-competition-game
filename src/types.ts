@@ -18,15 +18,25 @@ export interface Entity {
 }
 
 export enum GameFases {
-    "featurePlacement",
-    "boatPlacement",
-    "selectMoveFromCell",
-    "moveToCell",
-    "sprintEnd"
+    "featurePlacement" = "featurePlacement",
+    "boatPlacement" = "boatPlacement",
+    "selectMoveFromCell" = "selectMoveFromCell",
+    "moveToCell" = "moveToCell",
+    "sprintEnd" = "sprintEnd"
+}
+
+export type Sprint = "sprint1" | "sprint2" | "sprint3";
+
+export function isInstanceOfSprint(value: any): value is Sprint {
+    return typeof value === "string" && value.includes("sprint");
+}
+
+export function isInstanceOfFeature(value: any): value is Extract<EntityName, `feature${number}`> {
+    return typeof value === "string" && value.includes("feature");
 }
 
 export interface Cell {
-    type: "placeholder" | "production" | "safe" | "none" | "sprint1" | "sprint2" | "sprint3";
+    type: "placeholder" | "production" | "safe" | "none" | Sprint;
     content: Entity[];
     event?: GameEvent;
     isHighlighted?: boolean;

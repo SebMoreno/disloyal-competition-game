@@ -32,7 +32,7 @@ export const Board: React.FC<BoardProps> = ({
                             onSelected={onCellSelected}
                             position={{i, j}}
                             cell={cell}
-                            key={i + j}
+                            key={"" + i + j}
                             height={cellHeight}/>
                     )}
                 </div>

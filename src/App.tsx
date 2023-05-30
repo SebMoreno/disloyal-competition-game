@@ -9,6 +9,17 @@ function askForEntity(entities: Entity[]): Entity {
     return entities[0];
 }
 
+
 export const App: React.FC = () => {
-    return <Game players={4} maxFeatures={40} maxBoats={8} askForEntity={askForEntity}/>;
+    function handleGameOver() {
+        alert("Game over");
+    }
+
+    return <Game
+        players={4}
+        maxFeatures={40}
+        maxBoats={8}
+        askForEntity={askForEntity}
+        onGameOver={handleGameOver}
+    />;
 };
