@@ -148,7 +148,7 @@ export const Game: React.FC<GameProps> = ({maxBoats, maxFeatures, numOfPlayers, 
     }
 
     return <div className="game">
-        {Array(numOfPlayers).fill(null).map((_, i) => <PlayerCard key={i} playerNumber={i}/>)}
+        {Array(numOfPlayers).fill(null).map((_, i) => <PlayerCard key={i} playerNumber={i} isCurrent={currentPlayer === i}/>)}
         <Board cells={cells} onCellSelected={handleCellSelected}/>
     </div>;
 };

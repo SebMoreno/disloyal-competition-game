@@ -9,3 +9,7 @@
     background-color: #f5f5f5;
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.75);
 }
+
+.playerCard.highlight {
+    filter: drop-shadow(0 0 5px darkcyan) drop-shadow(0 0 5px #36bebe);
+}

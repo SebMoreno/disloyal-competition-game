@@ -51,3 +51,7 @@ export interface GameEvent {
     type: "instant" | "idea" | "counter";
     entity: EntityName | "whirlpool" | "doom" | "dolphin";
 }
+
+export interface Player {
+
+}
