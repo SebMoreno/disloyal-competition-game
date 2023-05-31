@@ -16,7 +16,7 @@ export const App: React.FC = () => {
     }
 
     return <Game
-        players={4}
+        numOfPlayers={4}
         maxFeatures={40}
         maxBoats={8}
         askForEntity={askForEntity}

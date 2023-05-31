@@ -11,24 +11,24 @@ import {
     Sprint
 } from "../types.ts";
 import { Board } from "./Board.tsx";
-import { usePlayer } from "../hooks/usePlayer.ts";
+import { usePlayers } from "../hooks/usePlayers.ts";
 import { PlayerCard } from "./PlayerCard.tsx";
 import "../styles/Game.css";
 
 interface GameProps {
-    players: number;
+    numOfPlayers: number;
     maxBoats: number;
     maxFeatures: number;
     askForEntity: (entities: Entity[]) => Entity;
     onGameOver: () => void;
 }
 
-export const Game: React.FC<GameProps> = ({maxBoats, maxFeatures, players, askForEntity, onGameOver}) => {
-    const features = useRef(Math.floor(maxFeatures / players) * players);
+export const Game: React.FC<GameProps> = ({maxBoats, maxFeatures, numOfPlayers, askForEntity, onGameOver}) => {
+    const features = useRef(Math.floor(maxFeatures / numOfPlayers) * numOfPlayers);
     const boats = useRef(maxBoats);
     const entityToMove = useRef<Entity | null>(null);
     const currentSprint = useRef<Sprint>("sprint1");
-    const {currentPlayer, nextTurn, playerMovements} = usePlayer(players);
+    const {currentPlayer, nextTurn, playerMovements} = usePlayers(numOfPlayers);
     const [cells, setCells] = useState(createInitialBoard);
     const [fase, setFase] = useState(GameFases.featurePlacement);
     const [fromCell, setFromCell] = useState<Position | null>(null);
@@ -148,7 +148,7 @@ export const Game: React.FC<GameProps> = ({maxBoats, maxFeatures, players, askFo
     }
 
     return <div className="game">
-        {Array(players).fill(null).map((_, i) => <PlayerCard key={i} playerNumber={i}/>)}
+        {Array(numOfPlayers).fill(null).map((_, i) => <PlayerCard key={i} playerNumber={i}/>)}
         <Board cells={cells} onCellSelected={handleCellSelected}/>
     </div>;
 };

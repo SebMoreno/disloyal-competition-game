@@ -1,6 +1,6 @@
 import { useCallback, useRef, useState } from "react";
 
-export function usePlayer(players: number) {
+export function usePlayers(players: number) {
     const [currentPlayer, setCurrentPlayer] = useState(0);
     const playerMovements = useRef(3);
     const nextTurn = useCallback(
