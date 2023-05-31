@@ -12,6 +12,8 @@ import {
 } from "../types.ts";
 import { Board } from "./Board.tsx";
 import { usePlayer } from "../hooks/usePlayer.ts";
+import { PlayerCard } from "./PlayerCard.tsx";
+import "../styles/Game.css";
 
 interface GameProps {
     players: number;
@@ -145,7 +147,8 @@ export const Game: React.FC<GameProps> = ({maxBoats, maxFeatures, players, askFo
         setCells(newCells);
     }
 
-    return <div>
+    return <div className="game">
+        {Array(players).fill(null).map((_, i) => <PlayerCard key={i} playerNumber={i}/>)}
         <Board cells={cells} onCellSelected={handleCellSelected}/>
     </div>;
 };

@@ -1,5 +1,7 @@
 main.board {
     position: relative;
+    grid-area: gameBoard;
+    z-index: 0;
 }
 
 .row {

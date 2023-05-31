@@ -13,7 +13,7 @@ interface BoardProps {
 export const Board: React.FC<BoardProps> = ({
                                                 cells,
                                                 containerHeight = window.innerHeight,
-                                                cellHeight = containerHeight / cells.length * 1.25,
+                                                cellHeight = containerHeight / cells.length * 1.2,
                                                 onCellSelected
                                             }) => {
     return (
