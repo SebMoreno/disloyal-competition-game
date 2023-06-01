@@ -1,5 +1,5 @@
 import { Cell, EntityName } from "../types.ts";
-import game from "./gameElements.json";
+import game from "./gameElementsZapataVersion.json";
 import { shuffleArray } from "./shuffleArray.ts";
 
 
@@ -13,7 +13,7 @@ export function createInitialBoard(): Cell[][] {
                         .map(entity => ({
                                 name: entity,
                                 movements: entity.includes("feature") ? 3
-                                    : entity === EntityName.demon ? 1
+                                    : entity === EntityName.monster ? 1
                                         : 0
                             })
                         )
