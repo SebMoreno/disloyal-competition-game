@@ -19,7 +19,7 @@
     align-content: center;
 }
 
-.demon {
+.monster {
     height: 10px;
     width: 10px;
     background-color: indigo;
@@ -28,7 +28,7 @@
     border: solid;
 }
 
-.demon::after {
+.monster::after {
     position: absolute;
     top: 36%;
     left: 36%;

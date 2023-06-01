@@ -8,7 +8,7 @@ export enum EntityName {
     "boat" = "boat",
     "shark" = "shark",
     "whale" = "whale",
-    "demon" = "demon"
+    "monster" = "monster"
 }
 
 export interface Entity {
@@ -26,6 +26,12 @@ export enum GameFases {
 }
 
 export type Sprint = "sprint1" | "sprint2" | "sprint3";
+export type Creature = "shark" | "whale" | "monster";
+
+export function isInstanceOfCreature(value: any): value is Creature {
+    return typeof value === "string" &&
+        (value === "shark" || value === "whale" || value === "monster");
+}
 
 export function isInstanceOfSprint(value: any): value is Sprint {
     return typeof value === "string" && value.includes("sprint");

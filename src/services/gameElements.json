@@ -60,7 +60,7 @@
       "type": "sprint1",
       "event": {
         "type": "idea",
-        "entity": "demon"
+        "entity": "monster"
       },
       "content": []
     },
@@ -204,7 +204,7 @@
       "type": "sprint2",
       "event": {
         "type": "idea",
-        "entity": "demon"
+        "entity": "monster"
       },
       "content": []
     },
@@ -380,7 +380,7 @@
       {
         "type": "production",
         "content": [
-          "demon"
+          "monster"
         ]
       },
       {
@@ -468,7 +468,7 @@
       {
         "type": "production",
         "content": [
-          "demon"
+          "monster"
         ]
       },
       {
@@ -650,7 +650,7 @@
       {
         "type": "production",
         "content": [
-          "demon"
+          "monster"
         ]
       },
       {
@@ -832,7 +832,7 @@
       {
         "type": "production",
         "content": [
-          "demon"
+          "monster"
         ]
       },
       {
@@ -924,7 +924,7 @@
       {
         "type": "production",
         "content": [
-          "demon"
+          "monster"
         ]
       },
       {
