@@ -1,326 +1,4 @@
 {
-  "sprintCells": [
-    {
-      "type": "sprint1",
-      "event": {
-        "type": "instant",
-        "entity": "boat"
-      },
-      "content": []
-    },
-    {
-      "type": "sprint1",
-      "event": {
-        "type": "instant",
-        "entity": "shark"
-      },
-      "content": []
-    },
-    {
-      "type": "sprint1",
-      "event": {
-        "type": "instant",
-        "entity": "shark"
-      },
-      "content": []
-    },
-    {
-      "type": "sprint1",
-      "event": {
-        "type": "instant",
-        "entity": "shark"
-      },
-      "content": []
-    },
-    {
-      "type": "sprint1",
-      "event": {
-        "type": "instant",
-        "entity": "whale"
-      },
-      "content": []
-    },
-    {
-      "type": "sprint1",
-      "event": {
-        "type": "instant",
-        "entity": "whale"
-      },
-      "content": []
-    },
-    {
-      "type": "sprint1",
-      "event": {
-        "type": "instant",
-        "entity": "whale"
-      },
-      "content": []
-    },
-    {
-      "type": "sprint1",
-      "event": {
-        "type": "idea",
-        "entity": "monster"
-      },
-      "content": []
-    },
-    {
-      "type": "sprint1",
-      "event": {
-        "type": "idea",
-        "entity": "shark"
-      },
-      "content": []
-    },
-    {
-      "type": "sprint1",
-      "event": {
-        "type": "idea",
-        "entity": "whale"
-      },
-      "content": []
-    },
-    {
-      "type": "sprint1",
-      "event": {
-        "type": "idea",
-        "entity": "boat"
-      },
-      "content": []
-    },
-    {
-      "type": "sprint1",
-      "event": {
-        "type": "idea",
-        "entity": "boat"
-      },
-      "content": []
-    },
-    {
-      "type": "sprint1",
-      "event": {
-        "type": "idea",
-        "entity": "dolphin"
-      },
-      "content": []
-    },
-    {
-      "type": "sprint1",
-      "event": {
-        "type": "idea",
-        "entity": "dolphin"
-      },
-      "content": []
-    },
-    {
-      "type": "sprint1",
-      "event": {
-        "type": "idea",
-        "entity": "dolphin"
-      },
-      "content": []
-    },
-    {
-      "type": "sprint1",
-      "event": {
-        "type": "idea",
-        "entity": "shark"
-      },
-      "content": []
-    },
-    {
-      "type": "sprint2",
-      "event": {
-        "type": "instant",
-        "entity": "boat"
-      },
-      "content": []
-    },
-    {
-      "type": "sprint2",
-      "event": {
-        "type": "instant",
-        "entity": "boat"
-      },
-      "content": []
-    },
-    {
-      "type": "sprint2",
-      "event": {
-        "type": "instant",
-        "entity": "boat"
-      },
-      "content": []
-    },
-    {
-      "type": "sprint2",
-      "event": {
-        "type": "instant",
-        "entity": "shark"
-      },
-      "content": []
-    },
-    {
-      "type": "sprint2",
-      "event": {
-        "type": "instant",
-        "entity": "shark"
-      },
-      "content": []
-    },
-    {
-      "type": "sprint2",
-      "event": {
-        "type": "instant",
-        "entity": "whale"
-      },
-      "content": []
-    },
-    {
-      "type": "sprint2",
-      "event": {
-        "type": "instant",
-        "entity": "whale"
-      },
-      "content": []
-    },
-    {
-      "type": "sprint2",
-      "event": {
-        "type": "instant",
-        "entity": "whirlpool"
-      },
-      "content": []
-    },
-    {
-      "type": "sprint2",
-      "event": {
-        "type": "instant",
-        "entity": "whirlpool"
-      },
-      "content": []
-    },
-    {
-      "type": "sprint2",
-      "event": {
-        "type": "idea",
-        "entity": "monster"
-      },
-      "content": []
-    },
-    {
-      "type": "sprint2",
-      "event": {
-        "type": "idea",
-        "entity": "shark"
-      },
-      "content": []
-    },
-    {
-      "type": "sprint2",
-      "event": {
-        "type": "idea",
-        "entity": "whale"
-      },
-      "content": []
-    },
-    {
-      "type": "sprint2",
-      "event": {
-        "type": "idea",
-        "entity": "dolphin"
-      },
-      "content": []
-    },
-    {
-      "type": "sprint2",
-      "event": {
-        "type": "idea",
-        "entity": "shark"
-      },
-      "content": []
-    },
-    {
-      "type": "sprint2",
-      "event": {
-        "type": "idea",
-        "entity": "whale"
-      },
-      "content": []
-    },
-    {
-      "type": "sprint2",
-      "event": {
-        "type": "idea",
-        "entity": "whale"
-      },
-      "content": []
-    },
-    {
-      "type": "sprint3",
-      "event": {
-        "type": "instant",
-        "entity": "doom"
-      },
-      "content": []
-    },
-    {
-      "type": "sprint3",
-      "event": {
-        "type": "instant",
-        "entity": "whirlpool"
-      },
-      "content": []
-    },
-    {
-      "type": "sprint3",
-      "event": {
-        "type": "instant",
-        "entity": "whirlpool"
-      },
-      "content": []
-    },
-    {
-      "type": "sprint3",
-      "event": {
-        "type": "instant",
-        "entity": "whirlpool"
-      },
-      "content": []
-    },
-    {
-      "type": "sprint3",
-      "event": {
-        "type": "instant",
-        "entity": "whirlpool"
-      },
-      "content": []
-    },
-    {
-      "type": "sprint3",
-      "event": {
-        "type": "instant",
-        "entity": "shark"
-      },
-      "content": []
-    },
-    {
-      "type": "sprint3",
-      "event": {
-        "type": "idea",
-        "entity": "shark"
-      },
-      "content": []
-    },
-    {
-      "type": "sprint3",
-      "event": {
-        "type": "idea",
-        "entity": "whale"
-      },
-      "content": []
-    }
-  ],
   "board": [
     [
       {
@@ -380,7 +58,10 @@
       {
         "type": "production",
         "content": [
-          "monster"
+          {
+            "name": "withdrawer",
+            "movements": 1
+          }
         ]
       },
       {
@@ -468,7 +149,10 @@
       {
         "type": "production",
         "content": [
-          "monster"
+          {
+            "name": "withdrawer",
+            "movements": 1
+          }
         ]
       },
       {
@@ -494,69 +178,19 @@
         "content": []
       },
       {
-        "type": "placeholder",
+        "type": "sprintDay",
         "content": []
       },
       {
-        "type": "placeholder",
+        "type": "sprintDay",
         "content": []
       },
       {
-        "type": "placeholder",
+        "type": "sprintDay",
         "content": []
       },
       {
-        "type": "placeholder",
-        "content": []
-      },
-      {
-        "type": "production",
-        "content": []
-      },
-      {
-        "type": "production",
-        "content": []
-      },
-      {
-        "type": "production",
-        "content": []
-      },
-      {
-        "type": "none",
-        "content": []
-      }
-    ],
-    [
-      {
-        "type": "production",
-        "content": []
-      },
-      {
-        "type": "production",
-        "content": []
-      },
-      {
-        "type": "production",
-        "content": []
-      },
-      {
-        "type": "placeholder",
-        "content": []
-      },
-      {
-        "type": "placeholder",
-        "content": []
-      },
-      {
-        "type": "placeholder",
-        "content": []
-      },
-      {
-        "type": "placeholder",
-        "content": []
-      },
-      {
-        "type": "placeholder",
+        "type": "sprintDay",
         "content": []
       },
       {
@@ -590,27 +224,77 @@
         "content": []
       },
       {
-        "type": "placeholder",
+        "type": "sprintDay",
         "content": []
       },
       {
-        "type": "placeholder",
+        "type": "sprintDay",
         "content": []
       },
       {
-        "type": "placeholder",
+        "type": "sprintDay",
         "content": []
       },
       {
-        "type": "placeholder",
+        "type": "sprintDay",
         "content": []
       },
       {
-        "type": "placeholder",
+        "type": "sprintDay",
         "content": []
       },
       {
-        "type": "placeholder",
+        "type": "production",
+        "content": []
+      },
+      {
+        "type": "production",
+        "content": []
+      },
+      {
+        "type": "production",
+        "content": []
+      },
+      {
+        "type": "none",
+        "content": []
+      }
+    ],
+    [
+      {
+        "type": "production",
+        "content": []
+      },
+      {
+        "type": "production",
+        "content": []
+      },
+      {
+        "type": "production",
+        "content": []
+      },
+      {
+        "type": "sprintDay",
+        "content": []
+      },
+      {
+        "type": "sprintDay",
+        "content": []
+      },
+      {
+        "type": "sprintDay",
+        "content": []
+      },
+      {
+        "type": "sprintDay",
+        "content": []
+      },
+      {
+        "type": "sprintDay",
+        "content": []
+      },
+      {
+        "type": "sprintDay",
         "content": []
       },
       {
@@ -636,133 +320,36 @@
         "content": []
       },
       {
-        "type": "placeholder",
+        "type": "sprintDay",
         "content": []
       },
       {
-        "type": "placeholder",
+        "type": "sprintDay",
         "content": []
       },
       {
-        "type": "placeholder",
+        "type": "sprintDay",
         "content": []
       },
       {
         "type": "production",
         "content": [
-          "monster"
+          {
+            "name": "withdrawer",
+            "movements": 1
+          }
         ]
       },
       {
-        "type": "placeholder",
+        "type": "sprintDay",
         "content": []
       },
       {
-        "type": "placeholder",
+        "type": "sprintDay",
         "content": []
       },
       {
-        "type": "placeholder",
-        "content": []
-      },
-      {
-        "type": "production",
-        "content": []
-      },
-      {
-        "type": "production",
-        "content": []
-      },
-      {
-        "type": "none",
-        "content": []
-      }
-    ],
-    [
-      {
-        "type": "production",
-        "content": []
-      },
-      {
-        "type": "production",
-        "content": []
-      },
-      {
-        "type": "production",
-        "content": []
-      },
-      {
-        "type": "placeholder",
-        "content": []
-      },
-      {
-        "type": "placeholder",
-        "content": []
-      },
-      {
-        "type": "placeholder",
-        "content": []
-      },
-      {
-        "type": "placeholder",
-        "content": []
-      },
-      {
-        "type": "placeholder",
-        "content": []
-      },
-      {
-        "type": "placeholder",
-        "content": []
-      },
-      {
-        "type": "production",
-        "content": []
-      },
-      {
-        "type": "production",
-        "content": []
-      },
-      {
-        "type": "production",
-        "content": []
-      }
-    ],
-    [
-      {
-        "type": "production",
-        "content": []
-      },
-      {
-        "type": "production",
-        "content": []
-      },
-      {
-        "type": "production",
-        "content": []
-      },
-      {
-        "type": "placeholder",
-        "content": []
-      },
-      {
-        "type": "placeholder",
-        "content": []
-      },
-      {
-        "type": "placeholder",
-        "content": []
-      },
-      {
-        "type": "placeholder",
-        "content": []
-      },
-      {
-        "type": "placeholder",
-        "content": []
-      },
-      {
-        "type": "production",
+        "type": "sprintDay",
         "content": []
       },
       {
@@ -780,6 +367,106 @@
     ],
     [
       {
+        "type": "production",
+        "content": []
+      },
+      {
+        "type": "production",
+        "content": []
+      },
+      {
+        "type": "production",
+        "content": []
+      },
+      {
+        "type": "sprintDay",
+        "content": []
+      },
+      {
+        "type": "sprintDay",
+        "content": []
+      },
+      {
+        "type": "sprintDay",
+        "content": []
+      },
+      {
+        "type": "sprintDay",
+        "content": []
+      },
+      {
+        "type": "sprintDay",
+        "content": []
+      },
+      {
+        "type": "sprintDay",
+        "content": []
+      },
+      {
+        "type": "production",
+        "content": []
+      },
+      {
+        "type": "production",
+        "content": []
+      },
+      {
+        "type": "production",
+        "content": []
+      }
+    ],
+    [
+      {
+        "type": "production",
+        "content": []
+      },
+      {
+        "type": "production",
+        "content": []
+      },
+      {
+        "type": "production",
+        "content": []
+      },
+      {
+        "type": "sprintDay",
+        "content": []
+      },
+      {
+        "type": "sprintDay",
+        "content": []
+      },
+      {
+        "type": "sprintDay",
+        "content": []
+      },
+      {
+        "type": "sprintDay",
+        "content": []
+      },
+      {
+        "type": "sprintDay",
+        "content": []
+      },
+      {
+        "type": "production",
+        "content": []
+      },
+      {
+        "type": "production",
+        "content": []
+      },
+      {
+        "type": "production",
+        "content": []
+      },
+      {
+        "type": "none",
+        "content": []
+      }
+    ],
+    [
+      {
         "type": "none",
         "content": []
       },
@@ -796,19 +483,19 @@
         "content": []
       },
       {
-        "type": "placeholder",
+        "type": "sprintDay",
         "content": []
       },
       {
-        "type": "placeholder",
+        "type": "sprintDay",
         "content": []
       },
       {
-        "type": "placeholder",
+        "type": "sprintDay",
         "content": []
       },
       {
-        "type": "placeholder",
+        "type": "sprintDay",
         "content": []
       },
       {
@@ -832,7 +519,10 @@
       {
         "type": "production",
         "content": [
-          "monster"
+          {
+            "name": "withdrawer",
+            "movements": 1
+          }
         ]
       },
       {
@@ -924,7 +614,10 @@
       {
         "type": "production",
         "content": [
-          "monster"
+          {
+            "name": "withdrawer",
+            "movements": 1
+          }
         ]
       },
       {
