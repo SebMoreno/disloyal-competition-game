@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import { createInitialBoard } from "../services/createInitialBoard.ts";
 import {
     Cell,
+    Creature,
     Entity,
     EntityName,
     GameFases,
@@ -28,7 +29,8 @@ export const Game: React.FC<GameProps> = ({maxBoats, maxFeatures, numOfPlayers, 
     const boats = useRef(maxBoats);
     const entityToMove = useRef<Entity | null>(null);
     const currentSprint = useRef<Sprint>("sprint1");
-    const {currentPlayer, nextTurn, playerMovements} = usePlayers(numOfPlayers);
+    const creatureToMove = useRef<Creature | null>(null);
+    const {currentPlayer, nextTurn, playerMovements, players} = usePlayers(numOfPlayers);
     const [cells, setCells] = useState(createInitialBoard);
     const [fase, setFase] = useState(GameFases.featurePlacement);
     const [fromCell, setFromCell] = useState<Position | null>(null);
@@ -62,8 +64,13 @@ export const Game: React.FC<GameProps> = ({maxBoats, maxFeatures, numOfPlayers, 
                 }
                 break;
             case GameFases.selectMoveFromCell:
-                if (cell.content.length > 0
-                    && cell.content.some(entity => isInstanceOfFeature(entity.name) && entity.movements > 0)) {
+                if (cell.content.length > 0) {
+                    // if (creatureToMove.current === null
+                    //     && cell.content.some(entity => entity.name === `feature${currentPlayer}` && entity.movements > 0)) {
+                    //     creatureToMove.current = askForEntity(cell.content.filter(entity => isInstanceOfCreature(entity.name)));
+                    // } else if () {
+                    //
+                    // }
                     cell.isHighlighted = true;
                     entityToMove.current = askForEntity(cell.content);
                     setFromCell(position);
@@ -135,10 +142,10 @@ export const Game: React.FC<GameProps> = ({maxBoats, maxFeatures, numOfPlayers, 
                                 onGameOver();
                                 break;
                         }
-                        cell.type = "production";
                     } else {
                         // TODO give the counter or the idea to the player
                     }
+                    cell.type = "production";
                     nextTurn();
                     setFase(GameFases.selectMoveFromCell);
                 }
@@ -148,7 +155,14 @@ export const Game: React.FC<GameProps> = ({maxBoats, maxFeatures, numOfPlayers, 
     }
 
     return <div className="game">
-        {Array(numOfPlayers).fill(null).map((_, i) => <PlayerCard key={i} playerNumber={i} isCurrent={currentPlayer === i}/>)}
+        {Array(numOfPlayers).fill(null).map((_, i) => <PlayerCard
+            key={i}
+            playerNumber={i}
+            isCurrent={currentPlayer === i}
+            movements={playerMovements.current}
+        />)}
+        <h1 style={{color: "darkcyan", zIndex: 9, position: "absolute", left: 300}}>Player {currentPlayer}</h1>
+        <h1 style={{color: "darkcyan", zIndex: 9, position: "absolute", left: 300, top: "3rem"}}>Fase {fase}</h1>
         <Board cells={cells} onCellSelected={handleCellSelected}/>
     </div>;
 };
