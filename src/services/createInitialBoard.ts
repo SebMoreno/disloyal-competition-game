@@ -1,5 +1,5 @@
 import { Cell, EntityName } from "../types.ts";
-import game from "./gameElementsZapataVersion.json";
+import game from "./gameElements.json";
 import { shuffleArray } from "./shuffleArray.ts";
 
 
