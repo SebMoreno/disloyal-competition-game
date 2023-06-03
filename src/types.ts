@@ -1,7 +1,7 @@
 export enum GameConstants {
     numOfPlayers = 6,
-    ticketsPerPlayer = 6,
-    initialPipelines = 8,
+    ticketsPerPlayer = 1,
+    initialPipelines = 2,
     ticketMovements = 1,
     playerMovementsPerTurn = 3
 }
@@ -44,17 +44,18 @@ export type ConsecutiveNumbers<N extends number, T extends unknown[] = []> = T['
     : ConsecutiveNumbers<N, [...T, T['length']]>;
 
 export type Ticket<Players extends number = GameConstants.numOfPlayers> = `ticket${ConsecutiveNumbers<Players>}`;
-export type Creature = "pipeline" | "withdrawer" | "testSuite";
+export type Creature = "withdrawer" | "testSuite";
+export type Helper = "pipeline";
 
 export interface Entity {
-    name: Ticket | Creature;
+    name: Ticket | Creature | Helper;
     movements: number;
 }
 
 export interface Cell {
     type: "sprintDay" | "production" | "safe" | "none";
     content: Entity[];
-    event?: Creature;
+    event?: Creature | Helper;
     isHighlighted?: boolean;
 }
 
@@ -72,7 +73,7 @@ export interface ProjectManager {
 
 export function isInstanceOfCreature(value: any): value is Creature {
     return typeof value === "string"
-        && (value === "pipeline" || value === "withdrawer" || value === "testSuite");
+        && (value === "withdrawer" || value === "testSuite");
 }
 
 export function isInstanceOfTicket<N extends number = GameConstants.numOfPlayers>(

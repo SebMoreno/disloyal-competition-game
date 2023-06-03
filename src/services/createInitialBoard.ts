@@ -1,4 +1,4 @@
-import { Cell, Creature, creatureDistribution, Entity } from "../types.ts";
+import { Cell, Creature, creatureDistribution, Entity, Helper } from "../types.ts";
 import game from "./gameElements.json";
 import { shuffleArray } from "./shuffleArray.ts";
 
@@ -18,7 +18,7 @@ export function createInitialBoard(): Cell[][] {
     for (const row of board) {
         for (let i = 0; i < row.length; i++) {
             if (row[i].type === "sprintDay" && j > 0) {
-                row[i].event = entities[--j]?.name as Creature;
+                row[i].event = entities[--j]?.name as Creature | Helper;
             }
         }
     }
