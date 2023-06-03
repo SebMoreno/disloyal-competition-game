@@ -1,18 +1,21 @@
 import React from "react";
-import { GameEvent } from "../types.ts";
+import { ProjectManager } from "../types.ts";
 import "../styles/PlayerCard.css";
 
 export interface PlayerCardProps {
-    playerNumber: number;
+    player: ProjectManager;
     isCurrent: boolean;
-    playerIdeas?: GameEvent[];
-    playerCounters?: GameEvent[];
 }
 
-export const PlayerCard: React.FC<PlayerCardProps> = ({playerNumber, isCurrent}) => {
+export const PlayerCard: React.FC<PlayerCardProps> = ({player, isCurrent}) => {
     return (
-        <section className={"playerCard" + (isCurrent ? " highlight" : "")}>
-            <article>Proyect Manager {playerNumber + 1}</article>
+        <section
+            className={"playerCard" + (isCurrent ? " highlight" : "")}
+            style={{
+                backgroundColor: `var(--color-player${player.id})`,
+                "--card-color": `var(--color-player${player.id})`
+            } as React.CSSProperties & { "--card-color": string }}>
+            <article>Proyect Manager {player.id + 1}</article>
         </section>
     );
 }

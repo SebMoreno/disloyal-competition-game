@@ -1,10 +1,10 @@
 :root {
-    --color-player0: "darkred";
-    --color-player1: "darkblue";
-    --color-player2: "darkorange";
-    --color-player3: "darkgreen";
-    --color-player4: "darkmagenta";
-    --color-player5: "darkcyan";
+    --color-player0: darkred;
+    --color-player1: darkblue;
+    --color-player2: darkorange;
+    --color-player3: darkgreen;
+    --color-player4: darkmagenta;
+    --color-player5: darkcyan;
 }
 
 html, body {

@@ -47,7 +47,10 @@ export const Game: React.FC<GameProps> = ({
                 if (tickets.current > 0
                     && cell.type === "sprintDay"
                     && cell.content.length === 0) {
-                    cell.content.push({name: "ticket" + currentPlayer as Ticket, movements: GameConstants.ticketMovements});
+                    cell.content.push({
+                        name: "ticket" + currentPlayer as Ticket,
+                        movements: GameConstants.ticketMovements
+                    });
                     tickets.current--;
                     nextTurn();
                 }
@@ -159,11 +162,13 @@ export const Game: React.FC<GameProps> = ({
     }
 
     return <div className="game">
-        {Array(numOfPlayers).fill(null).map((_, i) => <PlayerCard
-            key={i}
-            playerNumber={i}
-            isCurrent={currentPlayer === i}
-        />)}
+        {players.map((player, i) =>
+            <PlayerCard
+                key={i}
+                player={player}
+                isCurrent={currentPlayer === i}
+            />
+        )}
         <h1 style={{color: "darkcyan", zIndex: 9, position: "absolute", left: 300}}>Player {currentPlayer}</h1>
         <h1 style={{color: "darkcyan", zIndex: 9, position: "absolute", left: 300, top: "3rem"}}>Fase {fase}</h1>
         <Board cells={cells} onCellSelected={handleCellSelected}/>
