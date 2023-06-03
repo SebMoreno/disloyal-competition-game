@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import "../styles/Cell.css";
-import { Cell, Position } from "../types";
+import { Cell, cellColors, Position } from "../types";
 import { HexagonSVG } from "./HexagonSVG.tsx";
 
 interface CellProps {
@@ -11,17 +11,7 @@ interface CellProps {
     isHighlighted?: boolean;
 }
 
-const colors: Record<Cell["type"], string> = {
-    sprint1: "#f4a460",
-    sprint2: "#228b22",
-    sprint3: "#808080",
-    production: "#28498d",
-    safe: "#9acd32",
-    none: "transparent",
-    placeholder: "transparent"
-};
 const aspectRatio = 174 / 200;
-
 
 export const CellComp: React.FC<CellProps> = ({height, cell, onSelected, position}) => {
     const [highlight, setHighlight] = useState<boolean>(Boolean(cell.isHighlighted));
@@ -40,7 +30,7 @@ export const CellComp: React.FC<CellProps> = ({height, cell, onSelected, positio
     }, [cell]);
     if (cell.type === "none") {
         return <div className="cell">
-            <HexagonSVG height={height} width={width} fill={colors[cell.type]}/>
+            <HexagonSVG height={height} width={width} fill={cellColors[cell.type]}/>
         </div>;
     }
     return (
@@ -48,7 +38,7 @@ export const CellComp: React.FC<CellProps> = ({height, cell, onSelected, positio
              onClick={handleClick}
              onMouseOver={highlightOnHover ? (() => setHighlight(true)) : undefined}
              onMouseLeave={highlightOnHover ? (() => setHighlight(false)) : undefined}>
-            <HexagonSVG height={height} width={width} fill={colors[cell.type]}/>
+            <HexagonSVG height={height} width={width} fill={cellColors[cell.type]}/>
             <div className="cell_content">
                 {cell.content.map((e, i) => <div key={i} className={e.name}/>)}
             </div>

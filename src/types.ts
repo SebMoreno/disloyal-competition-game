@@ -30,6 +30,13 @@ export const creatureDistribution = {
     }
 } as const;
 
+export const cellColors: Record<Cell["type"], string> = {
+    sprintDay: "#a95aa1",
+    production: "#28498d",
+    safe: "#9acd32",
+    none: "transparent"
+};
+
 export type ConsecutiveNumbers<N extends number, T extends unknown[] = []> = T['length'] extends N
     ? T[number]
     : ConsecutiveNumbers<N, [...T, T['length']]>;

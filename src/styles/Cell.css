@@ -19,7 +19,7 @@
     align-content: center;
 }
 
-.monster {
+.withdrawer {
     height: 10px;
     width: 10px;
     background-color: indigo;
@@ -28,7 +28,7 @@
     border: solid;
 }
 
-.monster::after {
+.withdrawer::after {
     position: absolute;
     top: 36%;
     left: 36%;
@@ -40,7 +40,7 @@
     transform: rotate(90deg);
 }
 
-.boat {
+.pipeline {
     height: 10px;
     width: 10px;
     background-color: darksalmon;
@@ -48,12 +48,20 @@
     border: solid;
 }
 
-.feature0,
-.feature1,
-.feature2,
-.feature3,
-.feature4,
-.feature5 {
+.testSuite {
+    height: 10px;
+    width: 10px;
+    background-color: orangered;
+    transform: rotate(45deg);
+    border: solid;
+}
+
+.ticket0,
+.ticket1,
+.ticket2,
+.ticket3,
+.ticket4,
+.ticket5 {
     height: 4px;
     border-left: solid 4px;
     border-right: solid 4px;
@@ -62,32 +70,32 @@
     margin: 0 8px;
 }
 
-.feature0 {
-    border-left-color: darkred;
-    border-right-color: darkred;
+.ticket0 {
+    border-left-color: var(--color-player0);
+    border-right-color: var(--color-player0);
 }
 
-.feature1 {
-    border-left-color: darkblue;
-    border-right-color: darkblue;
+.ticket1 {
+    border-left-color: var(--color-player1);
+    border-right-color: var(--color-player1);
 }
 
-.feature2 {
-    border-left-color: darkorange;
-    border-right-color: darkorange;
+.ticket2 {
+    border-left-color: var(--color-player2);
+    border-right-color: var(--color-player2);
 }
 
-.feature3 {
-    border-left-color: darkgreen;
-    border-right-color: darkgreen;
+.ticket3 {
+    border-left-color: var(--color-player3);
+    border-right-color: var(--color-player3);
 }
 
-.feature4 {
-    border-left-color: darkmagenta;
-    border-right-color: darkmagenta;
+.ticket4 {
+    border-left-color: var(--color-player4);
+    border-right-color: var(--color-player4);
 }
 
-.feature5 {
-    border-left-color: crimson;
-    border-right-color: crimson;
+.ticket5 {
+    border-left-color: var(--color-player5);
+    border-right-color: var(--color-player5);
 }
