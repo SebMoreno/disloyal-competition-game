@@ -1,6 +1,6 @@
 import { Game } from "./components/Game.tsx";
 import React from "react";
-import { Entity } from "./types.ts";
+import { Entity, GameConstants } from "./types.ts";
 
 function askForEntity(entities: Entity[]): Entity {
     if (entities.length === 0) {
@@ -16,9 +16,9 @@ export const App: React.FC = () => {
     }
 
     return <Game
-        numOfPlayers={4}
-        maxFeatures={40}
-        maxBoats={8}
+        numOfPlayers={GameConstants.numOfPlayers}
+        ticketsPerPlayer={GameConstants.ticketsPerPlayer}
+        initialPipelines={GameConstants.initialPipelines}
         askForEntity={askForEntity}
         onGameOver={handleGameOver}
     />;

@@ -1,9 +1,9 @@
 import { useCallback, useRef, useState } from "react";
-import { Player } from "../types.ts";
+import { ProjectManager } from "../types.ts";
 
 export function usePlayers(numOfPlayers: number) {
     const [currentPlayer, setCurrentPlayer] = useState(0);
-    const [players, setPlayers] = useState<Player[]>([{}]);
+    const [players, setPlayers] = useState<ProjectManager[]>([{}]);
     const playerMovements = useRef(3);
     const nextTurn = useCallback(
         () => setCurrentPlayer(prevPlayer => {

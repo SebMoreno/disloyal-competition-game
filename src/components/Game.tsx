@@ -2,14 +2,13 @@ import React, { useRef, useState } from "react";
 import { createInitialBoard } from "../services/createInitialBoard.ts";
 import {
     Cell,
-    Creature,
+    creatureDistribution,
     Entity,
-    EntityName,
+    GameConstants,
     GameFases,
-    isInstanceOfFeature,
-    isInstanceOfSprint,
+    isInstanceOfTicket,
     Position,
-    Sprint
+    Ticket,
 } from "../types.ts";
 import { Board } from "./Board.tsx";
 import { usePlayers } from "../hooks/usePlayers.ts";
@@ -18,48 +17,53 @@ import "../styles/Game.css";
 
 interface GameProps {
     numOfPlayers: number;
-    maxBoats: number;
-    maxFeatures: number;
+    ticketsPerPlayer: number;
+    initialPipelines: number;
     askForEntity: (entities: Entity[]) => Entity;
     onGameOver: () => void;
 }
 
-export const Game: React.FC<GameProps> = ({maxBoats, maxFeatures, numOfPlayers, askForEntity, onGameOver}) => {
-    const features = useRef(Math.floor(maxFeatures / numOfPlayers) * numOfPlayers);
-    const boats = useRef(maxBoats);
+export const Game: React.FC<GameProps> = ({
+                                              numOfPlayers,
+                                              ticketsPerPlayer,
+                                              initialPipelines,
+                                              askForEntity,
+                                              onGameOver
+                                          }) => {
+    const tickets = useRef(ticketsPerPlayer * numOfPlayers);
+    const pipelines = useRef(initialPipelines);
     const entityToMove = useRef<Entity | null>(null);
-    const currentSprint = useRef<Sprint>("sprint1");
-    const creatureToMove = useRef<Creature | null>(null);
-    const {currentPlayer, nextTurn, playerMovements, players} = usePlayers(numOfPlayers);
+    const playerMovements = useRef<number>(GameConstants.playerMovementsPerTurn);
+    const {currentPlayer, nextTurn, players} = usePlayers(numOfPlayers);
     const [cells, setCells] = useState(createInitialBoard);
-    const [fase, setFase] = useState(GameFases.featurePlacement);
+    const [fase, setFase] = useState(GameFases.ticketPlacement);
     const [fromCell, setFromCell] = useState<Position | null>(null);
 
     function handleCellSelected(position: Position) {
         const newCells: Cell[][] = structuredClone(cells);
         const cell = newCells[position.i][position.j];
         switch (fase) {
-            case GameFases.featurePlacement:
-                if (features.current > 0
-                    && isInstanceOfSprint(cell.type)
+            case GameFases.ticketPlacement:
+                if (tickets.current > 0
+                    && cell.type === "sprintDay"
                     && cell.content.length === 0) {
-                    cell.content.push({name: "feature" + currentPlayer as EntityName, movements: 3});
-                    features.current--;
+                    cell.content.push({name: "ticket" + currentPlayer as Ticket, movements: GameConstants.ticketMovements});
+                    tickets.current--;
                     nextTurn();
                 }
-                if (features.current === 0) {
-                    setFase(GameFases.boatPlacement);
+                if (tickets.current === 0) {
+                    setFase(GameFases.pipelinePlacement);
                 }
                 break;
-            case GameFases.boatPlacement:
-                if (boats.current > 0
+            case GameFases.pipelinePlacement:
+                if (pipelines.current > 0
                     && cell.type === "production"
                     && cell.content.length === 0) {
-                    cell.content.push({name: EntityName.boat, movements: 3, passangers: []});
-                    boats.current--;
+                    cell.content.push({name: "pipeline", movements: creatureDistribution.pipeline.movements});
+                    pipelines.current--;
                     nextTurn();
                 }
-                if (boats.current === 0) {
+                if (pipelines.current === 0) {
                     setFase(GameFases.selectMoveFromCell);
                 }
                 break;
@@ -91,18 +95,18 @@ export const Game: React.FC<GameProps> = ({maxBoats, maxFeatures, numOfPlayers, 
                     if (playerMovements.current > 0) {
                         setFase(GameFases.selectMoveFromCell);
                     } else {
-                        setFase(GameFases.sprintEnd);
+                        setFase(GameFases.sprintDayEnds);
                     }
                     setFromCell(null);
                     entityToMove.current = null;
                 }
                 break;
-            case GameFases.sprintEnd:
+            case GameFases.sprintDayEnds:
                 if (cell.type === currentSprint.current && cell.event) {
                     if (cell.event.type === "instant") {
                         switch (cell.event.entity) {
                             case EntityName.boat:
-                                const features = cell.content.filter(entity => isInstanceOfFeature(entity.name));
+                                const features = cell.content.filter(entity => isInstanceOfTicket(entity.name));
                                 cell.content = [{
                                     name: EntityName.boat,
                                     movements: 3,
@@ -159,7 +163,6 @@ export const Game: React.FC<GameProps> = ({maxBoats, maxFeatures, numOfPlayers, 
             key={i}
             playerNumber={i}
             isCurrent={currentPlayer === i}
-            movements={playerMovements.current}
         />)}
         <h1 style={{color: "darkcyan", zIndex: 9, position: "absolute", left: 300}}>Player {currentPlayer}</h1>
         <h1 style={{color: "darkcyan", zIndex: 9, position: "absolute", left: 300, top: "3rem"}}>Fase {fase}</h1>

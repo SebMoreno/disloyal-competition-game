@@ -1,7 +1,9 @@
 export enum GameConstants {
     numOfPlayers = 6,
     ticketsPerPlayer = 6,
-    initialPipelines = 8
+    initialPipelines = 8,
+    ticketMovements = 1,
+    playerMovementsPerTurn = 3
 }
 
 export enum GameFases {
