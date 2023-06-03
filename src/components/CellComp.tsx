@@ -40,7 +40,12 @@ export const CellComp: React.FC<CellProps> = ({height, cell, onSelected, positio
              onMouseLeave={highlightOnHover ? (() => setHighlight(false)) : undefined}>
             <HexagonSVG height={height} width={width} fill={cellColors[cell.type]}/>
             <div className="cell_content">
-                {cell.content.map((e, i) => <div key={i} className={e.name}/>)}
+                {cell.content.map((e, i) =>
+                    <div
+                        key={i}
+                        className={`${e.name} ${e.movements > 0 ? '' : 'nomove'}`}
+                    />
+                )}
             </div>
         </div>
     );
