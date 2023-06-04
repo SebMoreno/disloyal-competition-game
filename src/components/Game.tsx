@@ -106,7 +106,11 @@ export const Game: React.FC<GameProps> = ({
                     }
                     break;
                 case GameFases.moveToCell:
-                    if (fromCell && entitiesToMove.current.length && isAdjacent(fromCell, position)) {
+                    if (fromCell
+                        && entitiesToMove.current.length
+                        && (isAdjacent(fromCell, position)
+                            || (fromCell.i === position.i && fromCell.j === position.j))
+                    ) {
                         const currentFromCell = newCells[fromCell.i][fromCell.j];
                         for (const entity of entitiesToMove.current) {
                             const entityIndex = currentFromCell.content
@@ -156,6 +160,9 @@ export const Game: React.FC<GameProps> = ({
                             });
                         }
                         cell.type = "production";
+                        if (newCells.flat().every(cell => cell.type !== "sprintDay")) {
+                            onGameOver();
+                        }
                         nextTurn();
                         setFase(GameFases.selectMoveFromCell);
                     }
