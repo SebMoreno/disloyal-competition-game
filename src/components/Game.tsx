@@ -8,6 +8,7 @@ import {
     GameFases,
     isInstanceOfCreature,
     Position,
+    ProjectManager,
     Ticket,
 } from "../types.ts";
 import { Board } from "./Board.tsx";
@@ -24,7 +25,7 @@ interface GameProps {
     ticketsPerPlayer: number;
     initialPipelines: number;
     askForEntity: (entities: Entity[]) => Entity;
-    onGameOver: () => void;
+    onGameOver: (winners: ProjectManager[]) => void;
 }
 
 export const Game: React.FC<GameProps> = ({
@@ -38,10 +39,10 @@ export const Game: React.FC<GameProps> = ({
         const pipelines = useRef(initialPipelines);
         const isMovingCreature = useRef<boolean>(false);
         const entitiesToMove = useRef<Entity[]>([]);
-        const {currentPlayer, nextTurn, playerMovements, players} = usePlayers(numOfPlayers);
         const [cells, setCells] = useState(createInitialBoard);
         const [fase, setFase] = useState(GameFases.ticketPlacement);
         const [fromCell, setFromCell] = useState<Position | null>(null);
+        const {currentPlayer, nextTurn, playerMovements, players, updateTechDebt} = usePlayers(numOfPlayers);
 
         function handleCellSelected(position: Position) {
             const newCells: Cell[][] = structuredClone(cells);
@@ -162,14 +163,16 @@ export const Game: React.FC<GameProps> = ({
                         }
                         cell.type = "production";
                         if (newCells.flat().every(cell => cell.type !== "sprintDay")) {
-                            onGameOver();
+                            const minTechDebt = Math.min(...players.map(player => player.techDebt))
+                            const winners = players.filter(player => player.techDebt === minTechDebt);
+                            onGameOver(winners);
                         }
                         nextTurn();
                         setFase(GameFases.selectMoveFromCell);
                     }
                     break;
             }
-
+            updateTechDebt(newCells);
             setCells(newCells);
         }
 

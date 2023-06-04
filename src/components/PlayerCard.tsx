@@ -16,6 +16,8 @@ export const PlayerCard: React.FC<PlayerCardProps> = ({player, isCurrent}) => {
                 "--card-color": `var(--color-player${player.id})`
             } as React.CSSProperties & { "--card-color": string }}>
             <article>Proyect Manager {player.id + 1}</article>
+            <article>Current Technichal Debt {player.techDebt}</article>
+            <article>Tickets Withdrawn {player.ticketsWithdrawn}</article>
         </section>
     );
 }

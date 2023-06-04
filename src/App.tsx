@@ -1,6 +1,6 @@
 import { Game } from "./components/Game.tsx";
 import React from "react";
-import { Entity, GameConstants } from "./types.ts";
+import { Entity, GameConstants, ProjectManager } from "./types.ts";
 
 function askForEntity(entities: Entity[]): Entity {
     if (entities.length === 0) {
@@ -15,8 +15,14 @@ function askForEntity(entities: Entity[]): Entity {
 
 
 export const App: React.FC = () => {
-    function handleGameOver() {
-        alert("Game over");
+    function handleGameOver(winners: ProjectManager[]) {
+        if (winners.length > 1) {
+            alert("Game over!\nIt's a tie!\nWinners:\n\n" +
+                winners.map(winner => `Player ${winner.id + 1}: Tech Debt ${winner.techDebt}`).join("\n")
+            );
+        } else {
+            alert("Game over!\nPlayer " + (winners[0].id + 1) + " wins!");
+        }
     }
 
     return <Game

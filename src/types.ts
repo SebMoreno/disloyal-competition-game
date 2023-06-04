@@ -3,7 +3,8 @@ export enum GameConstants {
     ticketsPerPlayer = 1,
     initialPipelines = 2,
     ticketMovements = 1,
-    playerMovementsPerTurn = 3
+    playerMovementsPerTurn = 3,
+    maxTechDebt = 8,
 }
 
 export const safePositions: Position[] = [
