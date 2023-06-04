@@ -16,6 +16,8 @@ import { PlayerCard } from "./PlayerCard.tsx";
 import "../styles/Game.css";
 import { restartMovements } from "../services/restartMovements.ts";
 import { DebugModal } from "./DebugModal.tsx";
+import { isAdjacent } from "../services/isAdjacent.ts";
+import { highlightAdjacentCells, removeHighlight } from "../services/highlightService.ts";
 
 interface GameProps {
     numOfPlayers: number;
@@ -100,10 +102,11 @@ export const Game: React.FC<GameProps> = ({
                         cell.isHighlighted = true;
                         setFromCell(position);
                         setFase(GameFases.moveToCell);
+                        highlightAdjacentCells(newCells, position);
                     }
                     break;
                 case GameFases.moveToCell:
-                    if (fromCell && entitiesToMove.current.length) {
+                    if (fromCell && entitiesToMove.current.length && isAdjacent(fromCell, position)) {
                         const currentFromCell = newCells[fromCell.i][fromCell.j];
                         for (const entity of entitiesToMove.current) {
                             const entityIndex = currentFromCell.content
@@ -113,7 +116,7 @@ export const Game: React.FC<GameProps> = ({
                         entitiesToMove.current.forEach(entity => entity.movements--);
                         cell.content.push(...entitiesToMove.current);
                         playerMovements.current--;
-                        delete currentFromCell.isHighlighted;
+                        removeHighlight(newCells);
                         if (isMovingCreature.current) {
                             if (entitiesToMove.current[0].movements > 0) {
                                 setFromCell(position);
@@ -145,7 +148,17 @@ export const Game: React.FC<GameProps> = ({
                     }
                     break;
                 case GameFases.sprintDayEnds:
-
+                    if (cell.type === "sprintDay") {
+                        if (cell.event) {
+                            cell.content.push({
+                                name: cell.event,
+                                movements: creatureDistribution[cell.event].movements
+                            });
+                        }
+                        cell.type = "production";
+                        nextTurn();
+                        setFase(GameFases.selectMoveFromCell);
+                    }
                     break;
             }
 
