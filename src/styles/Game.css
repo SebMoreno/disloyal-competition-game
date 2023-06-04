@@ -4,7 +4,8 @@
     padding: 10px;
     grid-gap: 20px;
     grid-template-columns: 1fr 3fr 1fr;
-    grid-template-areas: ". gameBoard ."
+    grid-template-areas: "info gameBoard ."
+                         ". gameBoard ."
                          ". gameBoard ."
                          ". gameBoard .";
 }

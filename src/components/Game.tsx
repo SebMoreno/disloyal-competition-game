@@ -19,7 +19,7 @@ import "../styles/Game.css";
 import { highlightAdjacentCells, removeHighlight } from "../services/highlightService.ts";
 import { isAdjacent } from "../services/hexMatrixService.ts";
 import { restartMovements } from "../services/restartMovements.ts";
-import { DebugModal } from "./DebugModal.tsx";
+import { InfoPanel } from "./InfoPanel.tsx";
 
 interface GameProps {
     numOfPlayers: number;
@@ -221,6 +221,12 @@ export const Game: React.FC<GameProps> = ({
         }
 
         return <div className="game">
+            <InfoPanel
+                currentPlayer={currentPlayer}
+                fase={fase}
+                playerMovements={playerMovements.current}
+                isMovingCreature={isMovingCreature.current}
+            />
             {players.map((player, i) =>
                 <PlayerCard
                     key={i}
@@ -228,13 +234,6 @@ export const Game: React.FC<GameProps> = ({
                     isCurrent={currentPlayer === i}
                 />
             )}
-            <DebugModal
-                currentPlayer={currentPlayer}
-                fase={fase}
-                playerMovements={playerMovements.current}
-                isMovingCreature={isMovingCreature.current}
-                fromCell={fromCell}
-            />
             <Board cells={cells} onCellSelected={handleCellSelected}/>
         </div>;
     }
