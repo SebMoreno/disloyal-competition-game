@@ -1,7 +1,7 @@
 export enum GameConstants {
     numOfPlayers = 6,
     ticketsPerPlayer = 6,
-    initialPipelines = 8,
+    initialPipelines = 6,
     ticketMovements = 1,
     playerMovementsPerTurn = 3,
     maxTechDebt = 8,
@@ -33,7 +33,7 @@ export const creatureDistribution = {
     testSuite: {
         name: "testSuite",
         movements: 2,
-        ammount: 18,
+        ammount: 22,
     },
     withdrawer: {
         name: "withdrawer",
