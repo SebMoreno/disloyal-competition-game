@@ -53,6 +53,7 @@
 }
 
 .testSuite {
+    position: relative;
     height: 10px;
     width: 5px;
     background-color: orangered;
@@ -66,8 +67,8 @@
     width: 12px;
     background-color: orangered;
     border: solid;
-    top: 29px;
-    left: 18px;
+    top: 4px;
+    left: -7px;
 }
 
 .ticket0,
