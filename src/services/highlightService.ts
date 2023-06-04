@@ -1,4 +1,4 @@
-import { isAdjacent } from "./isAdjacent.ts";
+import { isAdjacent } from "./hexMatrixService.ts";
 import { Cell, Position } from "../types.ts";
 
 
