@@ -1,5 +1,5 @@
 import { useCallback, useRef, useState } from "react";
-import { ProjectManager } from "../types.ts";
+import { GameConstants, ProjectManager } from "../types.ts";
 
 export function usePlayers(numOfPlayers: number) {
     const [currentPlayer, setCurrentPlayer] = useState(0);
@@ -10,7 +10,7 @@ export function usePlayers(numOfPlayers: number) {
             techDebt: 0
         } as ProjectManager))
     );
-    const playerMovements = useRef(3);
+    const playerMovements = useRef<number>(GameConstants.playerMovementsPerTurn);
     const nextTurn = useCallback(
         () => setCurrentPlayer(prevPlayer => {
             playerMovements.current = 3;
