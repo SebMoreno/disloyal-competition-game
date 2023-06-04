@@ -80,7 +80,7 @@ export const Game: React.FC<GameProps> = ({
                         if (isMovingCreature.current) {
                             const creaturesInCell = cell.content.filter(entity => isInstanceOfCreature(entity.name) && entity.movements > 0);
                             if (creaturesInCell.length) {
-                                entitiesToMove.current = [creaturesInCell[0]];
+                                entitiesToMove.current = [askForEntity(creaturesInCell)];
                                 canMove = true;
                             }
                         } else {
@@ -125,6 +125,7 @@ export const Game: React.FC<GameProps> = ({
                             if (entitiesToMove.current[0].movements > 0) {
                                 setFromCell(position);
                                 setFase(GameFases.moveToCell);
+                                highlightAdjacentCells(newCells, position);
                             } else {
                                 entitiesToMove.current = [];
                                 isMovingCreature.current = false;
