@@ -15,6 +15,7 @@ import { usePlayers } from "../hooks/usePlayers.ts";
 import { PlayerCard } from "./PlayerCard.tsx";
 import "../styles/Game.css";
 import { restartMovements } from "../services/restartMovements.ts";
+import { DebugModal } from "./DebugModal.tsx";
 
 interface GameProps {
     numOfPlayers: number;
@@ -159,21 +160,13 @@ export const Game: React.FC<GameProps> = ({
                     isCurrent={currentPlayer === i}
                 />
             )}
-            <div style={{
-                position: "absolute",
-                color: "darkcyan",
-                zIndex: 9,
-                fontSize: 25,
-                left: 10,
-                background: "rgba(0,0,0,0.8)",
-                margin: "-35px 0",
-            }}>
-                <p style={{position: "relative"}}>Player {currentPlayer}</p>
-                <p style={{position: "relative"}}>Fase {fase}</p>
-                <p style={{position: "relative"}}>MovementsRemaining {playerMovements.current}</p>
-                <p style={{position: "relative"}}>Moviendo Criatura: {String(isMovingCreature.current)}</p>
-                <p style={{position: "relative"}}>Moviendo Criatura: {fromCell ? `{i: ${fromCell.i}, j: ${fromCell.j}}` : "null"}</p>
-            </div>
+            <DebugModal
+                currentPlayer={currentPlayer}
+                fase={fase}
+                playerMovements={playerMovements.current}
+                isMovingCreature={isMovingCreature.current}
+                fromCell={fromCell}
+            />
             <Board cells={cells} onCellSelected={handleCellSelected}/>
         </div>;
     }
