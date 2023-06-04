@@ -1,10 +1,12 @@
 export enum GameConstants {
     numOfPlayers = 6,
-    ticketsPerPlayer = 1,
-    initialPipelines = 2,
+    ticketsPerPlayer = 6,
+    initialPipelines = 8,
     ticketMovements = 1,
     playerMovementsPerTurn = 3,
     maxTechDebt = 8,
+    ticketPassProbability = 0.5,
+    maxTechDebtIncrease = 5,
 }
 
 export const safePositions: Position[] = [
@@ -76,6 +78,7 @@ export interface ProjectManager {
     id: ConsecutiveNumbers<GameConstants.numOfPlayers>;
     ticketsWithdrawn: number;
     techDebt: number;
+    techDebtBecauseOfTestSuite: number;
 }
 
 

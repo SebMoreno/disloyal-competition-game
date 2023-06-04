@@ -7,6 +7,7 @@ import {
     GameConstants,
     GameFases,
     isInstanceOfCreature,
+    isInstanceOfTicket,
     Position,
     ProjectManager,
     Ticket,
@@ -42,7 +43,47 @@ export const Game: React.FC<GameProps> = ({
         const [cells, setCells] = useState(createInitialBoard);
         const [fase, setFase] = useState(GameFases.ticketPlacement);
         const [fromCell, setFromCell] = useState<Position | null>(null);
-        const {currentPlayer, nextTurn, playerMovements, players, updateTechDebt} = usePlayers(numOfPlayers);
+        const {
+            currentPlayer,
+            nextTurn,
+            playerMovements,
+            players,
+            updateTechDebt,
+            addTechDebtBecauseOfTestSuite
+        } = usePlayers(numOfPlayers);
+
+        function testTicket(playerId: number) {
+            const ticketPassed = Math.random() < GameConstants.ticketPassProbability;
+            const techDebtIncrease = Math.floor(Math.random() * GameConstants.maxTechDebtIncrease);
+            if (ticketPassed) {
+                alert(`The ticket of Project Manager ${playerId + 1} passed the test!`);
+            } else {
+                alert(`Test failed!\nTech Debt of Project Manager ${playerId + 1} increased by ${techDebtIncrease}`);
+            }
+            return ticketPassed ? 0 : techDebtIncrease;
+        }
+
+        function resolveCellContent(entities: Entity[]): Entity[] {
+            const withdrawers = entities.filter(entity => entity.name === "withdrawer");
+            const tickets = entities.filter(entity => isInstanceOfTicket(entity.name));
+            let testSuites = entities.filter(entity => entity.name === "testSuite");
+            if (withdrawers.length) {
+                return entities.filter(entity => !isInstanceOfTicket(entity.name) && entity.name !== "pipeline");
+            }
+            for (const _ of testSuites) {
+                for (const ticket of tickets) {
+                    const playerOfTheTicket = parseInt(ticket.name.substring(6));
+                    addTechDebtBecauseOfTestSuite(playerOfTheTicket, testTicket(playerOfTheTicket));
+                }
+            }
+            if (tickets.length) {
+                entitiesToMove.current
+                    .filter(entity => entity.name === "testSuite")
+                    .forEach(entity => entity.movements = 0);
+                return entities.filter(entity => entity.name !== "testSuite");
+            }
+            return entities;
+        }
 
         function handleCellSelected(position: Position) {
             const newCells: Cell[][] = structuredClone(cells);
@@ -85,6 +126,7 @@ export const Game: React.FC<GameProps> = ({
                                 canMove = true;
                             }
                         } else {
+                            const ticketsInCell = cell.content.filter(entity => isInstanceOfTicket(entity.name) && entity.name !== `ticket${currentPlayer}`);
                             const playerTickets = cell.content.filter(entity => entity.name === `ticket${currentPlayer}` && entity.movements > 0);
                             const pipelinesInCell = cell.content.filter(entity => entity.name === "pipeline" && entity.movements > 0);
                             canMove = true;
@@ -92,7 +134,7 @@ export const Game: React.FC<GameProps> = ({
                                 entitiesToMove.current = cell.content;
                             } else if (playerTickets.length) {
                                 entitiesToMove.current = [playerTickets[0]];
-                            } else if (pipelinesInCell.length) {
+                            } else if (pipelinesInCell.length && !ticketsInCell.length) {
                                 entitiesToMove.current = [pipelinesInCell[0]];
                             } else {
                                 canMove = false;
@@ -121,6 +163,7 @@ export const Game: React.FC<GameProps> = ({
                         entitiesToMove.current.forEach(entity => entity.movements--);
                         cell.content.push(...entitiesToMove.current);
                         playerMovements.current--;
+                        cell.content = resolveCellContent(cell.content);
                         removeHighlight(newCells);
                         if (isMovingCreature.current) {
                             if (entitiesToMove.current[0].movements > 0) {
@@ -160,6 +203,7 @@ export const Game: React.FC<GameProps> = ({
                                 name: cell.event,
                                 movements: creatureDistribution[cell.event].movements
                             });
+                            cell.content = resolveCellContent(cell.content);
                         }
                         cell.type = "production";
                         if (newCells.flat().every(cell => cell.type !== "sprintDay")) {

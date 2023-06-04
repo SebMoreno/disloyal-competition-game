@@ -9,9 +9,16 @@ export function usePlayers(numOfPlayers: number) {
         () => Array(numOfPlayers).fill(null).map((_, id) => ({
             id,
             ticketsWithdrawn: 0,
-            techDebt: 0
+            techDebt: 0,
+            techDebtBecauseOfTestSuite: 0
         } as ProjectManager))
     );
+    const addTechDebtBecauseOfTestSuite = (playerId: number, debtAdquired: number) => {
+        const newPlayers: ProjectManager[] = structuredClone(players);
+        const player = newPlayers.find(player => player.id === playerId)!;
+        player.techDebtBecauseOfTestSuite += debtAdquired;
+        setPlayers(newPlayers)
+    }
     const updateTechDebt = (cells: Cell[][]) => {
         const newPlayers: ProjectManager[] = structuredClone(players);
         const player = newPlayers.find(player => player.id === currentPlayer)!;
@@ -23,7 +30,7 @@ export function usePlayers(numOfPlayers: number) {
                 player.techDebt += getTechDebt({i, j}) * playerTickets.length;
             }
         }
-        player.techDebt += player.ticketsWithdrawn * GameConstants.maxTechDebt;
+        player.techDebt += player.techDebtBecauseOfTestSuite + player.ticketsWithdrawn * GameConstants.maxTechDebt;
         setPlayers(newPlayers);
     };
     const nextTurn = useCallback(
@@ -33,5 +40,5 @@ export function usePlayers(numOfPlayers: number) {
         }),
         [numOfPlayers]
     );
-    return {currentPlayer, nextTurn, playerMovements, players, updateTechDebt} as const;
+    return {currentPlayer, nextTurn, playerMovements, players, updateTechDebt, addTechDebtBecauseOfTestSuite} as const;
 }
