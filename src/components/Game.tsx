@@ -14,10 +14,10 @@ import { Board } from "./Board.tsx";
 import { usePlayers } from "../hooks/usePlayers.ts";
 import { PlayerCard } from "./PlayerCard.tsx";
 import "../styles/Game.css";
+import { highlightAdjacentCells, removeHighlight } from "../services/highlightService.ts";
+import { isAdjacent } from "../services/hexMatrixService.ts";
 import { restartMovements } from "../services/restartMovements.ts";
 import { DebugModal } from "./DebugModal.tsx";
-import { isAdjacent } from "../services/isAdjacent.ts";
-import { highlightAdjacentCells, removeHighlight } from "../services/highlightService.ts";
 
 interface GameProps {
     numOfPlayers: number;

@@ -6,6 +6,13 @@ export enum GameConstants {
     playerMovementsPerTurn = 3
 }
 
+export const safePositions: Position[] = [
+    {i: 1, j: 0},
+    {i: 1, j: 11},
+    {i: 11, j: 0},
+    {i: 11, j: 11}
+]
+
 export enum GameFases {
     "ticketPlacement" = "ticketPlacement",
     "pipelinePlacement" = "pipelinePlacement",
