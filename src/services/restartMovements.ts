@@ -6,7 +6,7 @@ export function restartMovements(cells: Cell[][]) {
         .flatMap(cell => cell.content)
         .forEach(entity =>
             entity.movements = isInstanceOfTicket(entity.name)
-                ? GameConstants.playerMovementsPerTurn
+                ? GameConstants.ticketMovements
                 : creatureDistribution[entity.name].movements
         );
 }
